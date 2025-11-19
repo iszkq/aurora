@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN" th:class="${theme.config.style.color_scheme}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title th:text="${sheet.spec.title} + ' · ' + ${site.title}"></title>
+    <meta name="description" th:content="${sheet.spec.excerpt}" />
+    <link rel="stylesheet" th:href="@{/assets/css/main.css}" />
+    <style>
+      :root{--primary: [[${theme.config.style.primary_color}]]}
+    </style>
+    <halo:head />
+  </head>
+  <body>
+    <div th:replace="~{fragments/header :: header}"></div>
+    <main class="container">
+      <article class="sheet-detail">
+        <h1 class="sheet-title" th:text="${sheet.spec.title}"></h1>
+        <div class="sheet-content" th:utext="${sheet.content.content}"></div>
+      </article>
+      <section class="comments">
+        <halo:comment />
+      </section>
+    </main>
+    <div th:replace="~{fragments/footer :: footer}"></div>
+    <script th:src="@{/assets/js/main.js}"></script>
+  </body>
+</html>

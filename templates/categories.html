@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN" th:class="${theme.config.style.color_scheme}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title th:text="'分类 · ' + ${site.title}"></title>
+    <link rel="stylesheet" th:href="@{/assets/css/main.css}" />
+    <style>
+      :root{--primary: [[${theme.config.style.primary_color}]]}
+    </style>
+    <halo:head />
+  </head>
+  <body>
+    <div th:replace="~{fragments/header :: header}"></div>
+    <main class="container">
+      <h2>分类</h2>
+      <ul class="category-list">
+        <li class="category-item" th:each="category : ${categories.items}">
+          <a th:href="@{${category.status.permalink}}" th:text="${category.spec.displayName}"></a>
+        </li>
+      </ul>
+    </main>
+    <div th:replace="~{fragments/footer :: footer}"></div>
+    <script th:src="@{/assets/js/main.js}"></script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN" th:class="${theme.config.style.color_scheme}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title th:text="'归档 · ' + ${site.title}"></title>
+    <link rel="stylesheet" th:href="@{/assets/css/main.css}" />
+    <style>
+      :root{--primary: [[${theme.config.style.primary_color}]]}
+    </style>
+    <halo:head />
+  </head>
+  <body>
+    <div th:replace="~{fragments/header :: header}"></div>
+    <main class="container">
+      <h2>归档</h2>
+      <ul class="post-list">
+        <li class="post-item" th:each="post : ${posts.items}">
+          <a class="post-title" th:href="@{${post.status.permalink}}" th:text="${post.spec.title}"></a>
+          <time th:text="${#temporals.format(post.spec.publishTime,'yyyy-MM-dd')}"></time>
+        </li>
+      </ul>
+    </main>
+    <div th:replace="~{fragments/footer :: footer}"></div>
+    <script th:src="@{/assets/js/main.js}"></script>
+  </body>
+</html>

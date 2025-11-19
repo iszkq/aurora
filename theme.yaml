@@ -1,0 +1,32 @@
+apiVersion: theme.halo.run/v1alpha1
+kind: Theme
+metadata:
+  name: theme-aurora
+spec:
+  displayName: Aurora
+  author:
+    name: Trae
+    website: https://halo.run
+  description: 现代、响应式、支持暗色模式与可配置的 Halo 主题
+  logo: https://halo.run/logo
+  homepage: https://halo.run
+  repo: https://example.com/theme-aurora.git
+  issues: https://example.com/theme-aurora/issues
+  settingName: "theme-aurora-setting"
+  configMapName: "theme-aurora-config"
+  version: 1.0.0
+  requires: 2.0.0
+  license:
+    - name: "GPL-3.0"
+      url: "https://www.gnu.org/licenses/gpl-3.0.html"
+  customTemplates:
+    post:
+      - name: 简洁文章布局
+        description: 简洁宽版文章模板
+        screenshot:
+          file: post.html
+    page:
+      - name: 自定义页面
+        description: 通用页面模板
+        screenshot:
+          file: sheet.html

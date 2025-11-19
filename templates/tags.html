@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN" th:class="${theme.config.style.color_scheme}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title th:text="'标签 · ' + ${site.title}"></title>
+    <link rel="stylesheet" th:href="@{/assets/css/main.css}" />
+    <style>
+      :root{--primary: [[${theme.config.style.primary_color}]]}
+    </style>
+    <halo:head />
+  </head>
+  <body>
+    <div th:replace="~{fragments/header :: header}"></div>
+    <main class="container">
+      <h2>标签</h2>
+      <ul class="tag-list">
+        <li class="tag-item" th:each="tag : ${tags.items}">
+          <a th:href="@{${tag.status.permalink}}" th:text="${tag.spec.displayName}"></a>
+        </li>
+      </ul>
+    </main>
+    <div th:replace="~{fragments/footer :: footer}"></div>
+    <script th:src="@{/assets/js/main.js}"></script>
+  </body>
+</html>

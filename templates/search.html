@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN" th:class="${theme.config.style.color_scheme}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title th:text="'搜索 · ' + ${site.title}"></title>
+    <link rel="stylesheet" th:href="@{/assets/css/main.css}" />
+    <style>
+      :root{--primary: [[${theme.config.style.primary_color}]]}
+    </style>
+    <halo:head />
+  </head>
+  <body>
+    <div th:replace="~{fragments/header :: header}"></div>
+    <main class="container">
+      <h2>搜索</h2>
+      <div id="search-root"></div>
+    </main>
+    <div th:replace="~{fragments/footer :: footer}"></div>
+    <script th:src="@{/assets/js/main.js}"></script>
+  </body>
+</html>

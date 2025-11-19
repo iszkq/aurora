@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN" th:class="${theme.config.style.color_scheme}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>页面未找到</title>
+    <link rel="stylesheet" th:href="@{/assets/css/main.css}" />
+    <style>
+      :root{--primary: [[${theme.config.style.primary_color}]]}
+    </style>
+    <halo:head />
+  </head>
+  <body>
+    <main class="container">
+      <div class="error-page">
+        <h1>404</h1>
+        <p>页面未找到</p>
+        <a class="btn" th:href="@{/}">返回首页</a>
+      </div>
+    </main>
+  </body>
+</html>

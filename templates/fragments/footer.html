@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<div th:fragment="footer">
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <span th:text="${site.title}"></span>
+        <span>·</span>
+        <span th:text="${#temporals.format(#dates.createNow(), 'yyyy')}"></span>
+      </div>
+      <div class="footer-right">
+        <a th:if="${theme.config.social.github}" th:href="${theme.config.social.github}" target="_blank">GitHub</a>
+        <a th:if="${theme.config.social.twitter}" th:href="${theme.config.social.twitter}" target="_blank">Twitter</a>
+      </div>
+    </div>
+    <halo:footer />
+  </footer>
+</div>

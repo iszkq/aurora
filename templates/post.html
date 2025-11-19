@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN" th:class="${theme.config.style.color_scheme}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title th:text="${post.spec.title} + ' · ' + ${site.title}"></title>
+    <meta name="description" th:content="${post.spec.excerpt}" />
+    <link rel="stylesheet" th:href="@{/assets/css/main.css}" />
+    <style>
+      :root{--primary: [[${theme.config.style.primary_color}]]}
+    </style>
+    <halo:head />
+  </head>
+  <body>
+    <div th:replace="~{fragments/header :: header}"></div>
+    <main class="container">
+      <article class="post-detail">
+        <h1 class="post-title" th:text="${post.spec.title}"></h1>
+        <div class="post-meta">
+          <time th:text="${#temporals.format(post.spec.publishTime,'yyyy-MM-dd')}"></time>
+        </div>
+        <div class="notice" th:if="${post.metadata.annotations['enable_read_limit'] == 'true'}">评论后可见</div>
+        <div class="post-content" th:utext="${post.content.content}"></div>
+        <div class="post-actions">
+          <div th:if="${theme.config.layout.show_toc}" id="toc"></div>
+        </div>
+      </article>
+      <section class="comments">
+        <halo:comment />
+      </section>
+    </main>
+    <div th:replace="~{fragments/footer :: footer}"></div>
+    <script th:src="@{/assets/js/main.js}"></script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+apiVersion: v1alpha1
+kind: Setting
+metadata:
+  name: theme-aurora-setting
+spec:
+  forms:
+    - group: style
+      label: 样式
+      formSchema:
+        - $formkit: radio
+          name: color_scheme
+          label: 配色模式
+          value: system
+          options:
+            - label: 跟随系统
+              value: system
+            - label: 深色
+              value: dark
+            - label: 浅色
+              value: light
+        - $formkit: color
+          name: primary_color
+          label: 主题主色
+          value: "#3b82f6"
+        - $formkit: attachment
+          name: banner_image
+          label: 首页横幅图片
+    - group: layout
+      label: 布局
+      formSchema:
+        - $formkit: radio
+          name: show_search
+          label: 显示搜索入口
+          value: true
+          options:
+            - label: 显示
+              value: true
+            - label: 隐藏
+              value: false
+        - $formkit: radio
+          name: show_toc
+          label: 显示文章目录
+          value: true
+          options:
+            - label: 显示
+              value: true
+            - label: 隐藏
+              value: false
+    - group: social
+      label: 社交
+      formSchema:
+        - $formkit: text
+          name: github
+          label: GitHub 链接
+        - $formkit: text
+          name: twitter
+          label: Twitter 链接
+        - $formkit: text
+          name: wechat_qr
+          label: 微信二维码图片链接
